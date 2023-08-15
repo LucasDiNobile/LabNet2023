@@ -10,6 +10,7 @@ namespace LabNet2023.HelloWorld
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello World!");
         }
     }
 }
