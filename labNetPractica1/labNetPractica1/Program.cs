@@ -10,10 +10,11 @@ namespace labNetPractica1
             List<Transportes> transportes = new List<Transportes>{};
 
             string transporte;
-            int pasajeros, cantOmnibus = 0, cantTaxi = 0, idTaxi = 0, idOmnibus = 0;
+            int cantOmnibus = 0, cantTaxi = 0, idTaxi = 0, idOmnibus = 0;
             
             for (int i = 0; i <= 10; i++) 
-            { 
+            {
+                int pasajeros = 0;
                 Console.WriteLine("Desea viajar en Omnibus o Taxi?");
                 transporte = Console.ReadLine();
 
@@ -29,12 +30,18 @@ namespace labNetPractica1
                     cantOmnibus++;
                     idOmnibus++;
                     Console.WriteLine("Cuantos pasajeros viajaran en este transporte?");
-                    pasajeros = int.Parse(Console.ReadLine());
 
                     while (pasajeros < 1 || pasajeros > 100)
                     {
-                        Console.WriteLine("Incorrecto, por favor ingrese un numero entre 1 y 100");
-                        pasajeros = int.Parse(Console.ReadLine());
+                        try
+                        {
+                            pasajeros = int.Parse(Console.ReadLine());
+                        }
+                        catch(FormatException e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Incorrecto, por favor ingrese un numero entre 1 y 100");
+                        }
                     }
                                         
                     Transportes Omnibus = new Omnibus(pasajeros, idOmnibus);
@@ -44,13 +51,20 @@ namespace labNetPractica1
                 {
                     cantTaxi++;
                     idTaxi++;
+
                     Console.WriteLine("Cuantos pasajeros viajaran en este transporte?");
-                    pasajeros = int.Parse(Console.ReadLine());
 
                     while (pasajeros < 1 || pasajeros > 4)
                     {
-                        Console.WriteLine("Incorrecto, por favor ingrese un numero entre 1 y 100");
-                        pasajeros = int.Parse(Console.ReadLine());
+                        try
+                        {
+                            pasajeros = int.Parse(Console.ReadLine());
+                        }
+                        catch(FormatException e)
+                        {
+                            Console.WriteLine(e.Message);
+                            Console.WriteLine("Incorrecto, por favor ingrese un numero entre 1 y 4");
+                        }
                     }
                     
                     Transportes Taxi = new Taxi(pasajeros, idTaxi);
