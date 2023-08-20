@@ -12,18 +12,32 @@ namespace labNetPractica2
         static void Main(string[] args)
         {
             //Ejerciocio 1
-            int divCero;
+            int divCero = 0;
+            bool continuar = true;
 
-            divCero = DivCero(4);
-            Console.WriteLine(divCero);
+            while (continuar)
+            {
+                try
+                {
+                    Console.WriteLine("Por favor ingrese un numero para que sea dividido por cero.");
+                    divCero = int.Parse(Console.ReadLine());
+                    continuar = false;
+                }
+                catch (FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine("¡Seguro Ingreso una letra o no ingreso nada!");
+                }
+            }
+            Console.WriteLine(Divide.DivCero(divCero));
 
             //Ejercicio 2
-            int divisor = 0, dividendo = 0;
+            double divisor = 0, dividendo = 0;
 
             try
             {
                 Console.WriteLine("Por favor ingrese un numero.");
-                divisor = int.Parse(Console.ReadLine());
+                divisor = double.Parse(Console.ReadLine());
             }
             catch(FormatException ex)
             {
@@ -34,7 +48,7 @@ namespace labNetPractica2
             try
             {
                 Console.WriteLine("Por favor ingrese un numero.");
-                dividendo = int.Parse(Console.ReadLine());
+                dividendo = double.Parse(Console.ReadLine());
             }
             catch (FormatException ex)
             {
@@ -68,22 +82,7 @@ namespace labNetPractica2
             Console.ReadKey();
         }
 
-        private static int DivCero(int num1)
-        {
-            try
-            {
-                return num1 / 0;
-            }
-            catch(DivideByZeroException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return -1;
-            }
-            finally
-            {
-                Console.WriteLine("La operacion terminó de realizarse!");
-            }
-        }
+        
 
         private static void TrowExcepcionPersonalizada()
         {

@@ -8,7 +8,25 @@ namespace labNetPractica2
 {
     public class Divide
     {
-        public static int Dividir(int dividendo, int divisor)
+        public static int DivCero(int num1)
+        {
+            try
+            {
+                return num1 / 0;
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine(ex.Message);
+                return -1;
+            }
+            finally
+            {
+                Console.WriteLine("La operacion terminó de realizarse!");
+            }
+        }
+
+
+        public static double Dividir(double dividendo, double divisor)
         {
             try
             {
