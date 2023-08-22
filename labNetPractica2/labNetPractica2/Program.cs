@@ -14,7 +14,7 @@ namespace labNetPractica2
             //Ejerciocio 1
             int divCero = 0;
             bool continuar = true;
-
+            
             while (continuar)
             {
                 try

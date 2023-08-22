@@ -15,17 +15,16 @@ namespace labNetPractica2.Tests
         public void DividirTest()
         {
             //Arrang
-            int dividendo = 10;
-            int divisor = 5;
-            int resultadoPrueba;
-            int resultadoEsperado = 2;
+            double dividendo = 10;
+            double divisor = 5;
+            double resultadoPrueba;
+            double resultadoEsperado = 2;
 
             //Act
-            resultadoPrueba = dividendo / divisor;
+            resultadoPrueba = Divide.Dividir(dividendo, divisor);
+            //resultadoPrueba = dividendo / divisor;
 
             //Assert
-
-
             Assert.AreEqual(resultadoPrueba, resultadoEsperado);
         }
     }
