@@ -22,10 +22,10 @@ namespace labNetPractica2.Tests
 
             //Act
             resultadoPrueba = Divide.Dividir(dividendo, divisor);
-            //resultadoPrueba = dividendo / divisor;
 
             //Assert
             Assert.AreEqual(resultadoPrueba, resultadoEsperado);
+            
         }
     }
 }
