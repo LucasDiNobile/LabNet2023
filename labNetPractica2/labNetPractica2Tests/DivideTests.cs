@@ -25,7 +25,7 @@ namespace labNetPractica2.Tests
 
             //Assert
             Assert.AreEqual(resultadoPrueba, resultadoEsperado);
-            
+
         }
     }
 }

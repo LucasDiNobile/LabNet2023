@@ -66,7 +66,7 @@ namespace labNetPractica2
             catch(FormatException ex)
             {
                 Console.WriteLine($"\nExcepcion: {ex.Message}");
-                Console.WriteLine($"StackTrace {ex.StackTrace}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
             }
 
             //Ejercicio 4

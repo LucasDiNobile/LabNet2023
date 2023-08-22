@@ -22,7 +22,7 @@ namespace labNetPractica2
 
         public static void TrowExcepcionPersonalizada()
         {
-            throw new ExcepcionPersonalizada("Este es el mensaje personalizado de que toma la excepcion.");
+            throw new ExcepcionPersonalizada("Este es el mensaje personalizado que toma la excepcion.");
         }
     }
 }
