@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace labNetPractica2
 {
+    //Ejercicio 4
     public class ExcepcionPersonalizada : Exception
     {
-        public ExcepcionPersonalizada() : base("Mensaje de error de la Excepcion Personalizada")
+        private string mensajePerso;
+        public ExcepcionPersonalizada(string mensajePerso) : base("Este el mensaje de error de la Excepcion Personalizada")
         {
+            this.mensajePerso = mensajePerso;
+        }
 
+        public string MensajePerso()
+        {
+            return $"Mensaje personalizado de la excepcion: {mensajePerso}";
         }
     }
 }
