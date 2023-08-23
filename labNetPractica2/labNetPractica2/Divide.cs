@@ -8,7 +8,6 @@ namespace labNetPractica2
 {
     public static class Divide
     {
-        //Ejercicio 1
         public static int DivCero(int num1)
         {
             try
@@ -26,7 +25,6 @@ namespace labNetPractica2
             }
         }
 
-        //Ejercicio 2
         public static double Dividir(double dividendo, double divisor)
         {
             try

@@ -8,7 +8,6 @@ namespace labNetPractica2
 {
     public static class Logic
     {
-        //Ejercicio 3
         public static int TiraExcepcion()
         {
             string mensaje = "hola";
@@ -17,8 +16,6 @@ namespace labNetPractica2
             mensaje2 = int.Parse(mensaje);
             return mensaje2;                           
         }
-
-        //Ejercicio 4
 
         public static void TrowExcepcionPersonalizada()
         {

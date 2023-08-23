@@ -11,7 +11,6 @@ namespace labNetPractica2
     {
         static void Main(string[] args)
         {
-            //Ejerciocio 1
             int divCero = 0;
             bool continuar = true;
             
@@ -31,7 +30,6 @@ namespace labNetPractica2
             }
             Console.WriteLine(Divide.DivCero(divCero));
 
-            //Ejercicio 2
             double divisor = 0, dividendo = 0, resultado;
 
             try
@@ -58,7 +56,6 @@ namespace labNetPractica2
             resultado = Divide.Dividir(divisor, dividendo);
             Console.WriteLine($"\nEl resultado de la division es: {resultado}");
 
-            //Ejercicio 3
             try
             {
                 Logic.TiraExcepcion();
@@ -69,7 +66,6 @@ namespace labNetPractica2
                 Console.WriteLine($"StackTrace: {ex.StackTrace}");
             }
 
-            //Ejercicio 4
             try
             {
                 Logic.TrowExcepcionPersonalizada();

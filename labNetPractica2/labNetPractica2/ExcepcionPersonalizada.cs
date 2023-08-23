@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace labNetPractica2
 {
-    //Ejercicio 4
     public class ExcepcionPersonalizada : Exception
     {
         private string mensajePerso;
