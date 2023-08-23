@@ -34,7 +34,7 @@ namespace labNetPractica2
 
             try
             {
-                Console.WriteLine("Por favor ingrese un numero.");
+                Console.WriteLine("Por favor ingrese un numero para que sea dividido.");
                 divisor = double.Parse(Console.ReadLine());
             }
             catch(FormatException ex)
@@ -45,7 +45,7 @@ namespace labNetPractica2
 
             try
             {
-                Console.WriteLine("Por favor ingrese un numero.");
+                Console.WriteLine("Por favor ingrese un numero para dividir el anterior.");
                 dividendo = double.Parse(Console.ReadLine());
             }
             catch (FormatException ex)
