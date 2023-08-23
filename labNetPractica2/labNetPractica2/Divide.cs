@@ -25,7 +25,7 @@ namespace labNetPractica2
             }
         }
 
-        public static double Dividir(double dividendo, double divisor)
+        public static decimal Dividir(decimal dividendo, decimal divisor)
         {
             try
             {

@@ -30,12 +30,12 @@ namespace labNetPractica2
             }
             Console.WriteLine(Divide.DivCero(divCero));
 
-            double divisor = 0, dividendo = 0, resultado;
+            decimal divisor = 0, dividendo = 0, resultado;
 
             try
             {
                 Console.WriteLine("Por favor ingrese un numero para que sea dividido.");
-                divisor = double.Parse(Console.ReadLine());
+                divisor = decimal.Parse(Console.ReadLine());
             }
             catch(FormatException ex)
             {
@@ -46,7 +46,7 @@ namespace labNetPractica2
             try
             {
                 Console.WriteLine("Por favor ingrese un numero para dividir el anterior.");
-                dividendo = double.Parse(Console.ReadLine());
+                dividendo = decimal.Parse(Console.ReadLine());
             }
             catch (FormatException ex)
             {
