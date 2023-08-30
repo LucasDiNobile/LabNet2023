@@ -48,11 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseLogic.cs" />
+    <Compile Include="EmployeeLogic.cs" />
+    <Compile Include="ILogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lab.Practica3.EF.Data\Lab.Practica3.EF.Data.csproj">
+      <Project>{F55528CB-9900-4F58-8D06-7907C9E22270}</Project>
+      <Name>Lab.Practica3.EF.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lab.Practica3.EF.Entities\Lab.Practica3.EF.Entities.csproj">
+      <Project>{d6a026ad-b8d1-451b-97fc-00c0b3ae40e6}</Project>
+      <Name>Lab.Practica3.EF.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
