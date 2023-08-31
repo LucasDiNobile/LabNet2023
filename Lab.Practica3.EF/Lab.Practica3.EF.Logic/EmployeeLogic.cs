@@ -39,18 +39,9 @@ namespace Lab.Practica3.EF.Logic
 
             employeeUpdate.LastName = entity.LastName;
             employeeUpdate.FirstName = entity.FirstName;
-            employeeUpdate.Title = entity.Title; 
-            employeeUpdate.TitleOfCourtesy = entity.TitleOfCourtesy;
-            employeeUpdate.BirthDate = entity.BirthDate;
-            employeeUpdate.HireDate = entity.HireDate;
-            employeeUpdate.Address = entity.Address;
             employeeUpdate.City = entity.City;
-            employeeUpdate.Region = entity.Region;
             employeeUpdate.PostalCode = entity.PostalCode;
             employeeUpdate.Country = entity.Country;    
-            employeeUpdate.HomePhone = entity.HomePhone;
-            employeeUpdate.Extension = entity.Extension;
-            employeeUpdate.Notes = entity.Notes;
 
             context.SaveChanges();
         }
