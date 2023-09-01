@@ -10,32 +10,31 @@ namespace Lab.Practica3.EF.Logic
 {
     public class EmployeeLogic : BaseLogic, ILogic<Employee>
     {
-
         public EmployeeLogic() : base() { }
 
 
         public List<Employee> GetAll()
         {
-            return context.Employees.ToList();
+            return context.Employee.ToList();
         }
 
         public void Delete(Employee entity)
         {
-            var employeeToDelete = context.Employees.Find(entity.EmployeeID);
+            var employeeToDelete = context.Employee.Find(entity.EmployeeID);
 
-            context.Employees.Remove(employeeToDelete);
+            context.Employee.Remove(employeeToDelete);
 
             context.SaveChanges();
         }
         public void Insert(Employee entity)
         {
-            context.Employees.Add(entity);
+            context.Employee.Add(entity);
 
             context.SaveChanges();
         }
         public void Update(Employee entity)
         {
-            var employeeUpdate = context.Employees.Find(entity.EmployeeID);
+            var employeeUpdate = context.Employee.Find(entity.EmployeeID);
 
             employeeUpdate.LastName = entity.LastName;
             employeeUpdate.FirstName = entity.FirstName;

@@ -18,10 +18,11 @@ namespace Lab.Practica3.EF.UI
         {           
             bool continuar = true;            
             EmployeeLogic employeeLogic = new EmployeeLogic();
+            CustomerLogic customerLogic = new CustomerLogic();
 
             while (continuar) 
             {
-                int tablaDeseada = 0, accionDeseadaCliente = 0, accionDeseadaEmpleado = 0;
+                int tablaDeseada = 3, accionDeseadaCliente = 5, accionDeseadaEmpleado = 5;
                 
                 try
                 {
@@ -55,7 +56,6 @@ namespace Lab.Practica3.EF.UI
                         accionDeseadaEmpleado = int.Parse(Console.ReadLine());
 
                         break;
-
                     case 0:
                         continuar = false;
 
@@ -69,17 +69,168 @@ namespace Lab.Practica3.EF.UI
                 switch (accionDeseadaCliente)
                 {
                     case 1:
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
                         break;
-                    case 2:
+                    case 2://TODO: agregar validaciones
+                        int agregar = 8, salirInsertC = 1;
+                        string nombre = "", nombreContacto = "", ciudad = "", pais = "", codigoPostal = "", id = "";
+
+                        Console.WriteLine("Que campo desea agregarle al cliente?");
+
+                        while (salirInsertC == 1)
+                        {
+                            try
+                            {
+                                Console.WriteLine(
+                                    "1.Id\n" +
+                                    "2.Nombre\n" +
+                                    "3.Nombre de contacto\n" +
+                                    "4.Ciudad\n" +
+                                    "5.Codigo postal\n" +
+                                    "6.Pais\n" +
+                                    "7.Insertar empleado\n" +
+                                    "0.Salir");
+                                agregar = int.Parse(Console.ReadLine());
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("creo que ingreso una letra, vuelva a intentarlo");
+                            }
+
+                            switch (agregar)
+                            {
+                                case 1:                              
+                                    id = Console.ReadLine(); 
+                                    
+                                    Console.WriteLine($"Se agregara el id: {id} a la tabla.");
+                                    break;
+                                case 2:
+                                    nombre = Console.ReadLine();
+                                    Console.WriteLine($"Se ingresara el nombre: {nombre} a la tabla.");
+                                    break;
+                                case 3:
+                                    nombreContacto = Console.ReadLine();
+                                    Console.WriteLine($"Se ingresara el apellido: {nombreContacto} a la tabla.");
+                                    break;
+                                case 4:
+                                    ciudad = Console.ReadLine();
+                                    Console.WriteLine($"Se ingresara la ciudad: {ciudad} a la tabla.");
+
+                                    break;
+                                case 5:
+                                    codigoPostal = Console.ReadLine();
+                                    Console.WriteLine($"Se ingresara el codigo postal: {codigoPostal} a la tabla.");
+
+                                    break;
+                                case 6:
+                                    pais = Console.ReadLine();
+                                    Console.WriteLine($"Se ingresara el pais: {pais} a la tabla.");
+                                    break;
+                                case 7:
+                                    salirInsertC = 0;
+                                    break;
+                                case 0:
+                                    salirInsertC = 0;
+                                    continuar = false;
+                                    break;
+                                default:
+                                    Console.WriteLine("El numero no es valido, vuelva a intentarlo");
+                                    break;
+                            }
+                        }
+                        customerLogic.Insert(new Customer
+                        {
+                            CustomerID = id,
+                            CompanyName = nombre,
+                            ContactName = nombreContacto,
+                            City = ciudad,
+                            PostalCode = codigoPostal,
+                            Country = pais,
+                        });
+
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
+
+                        Console.WriteLine("Genial! El cliente se inserto con exito");
                         break; 
                     case 3:
+                        
+                        string nuevoCompanyName = "", nuevoContactName = "", NuevaCiudad = "", nuevoCodigoPostal = "", nuevoPaisC = "", clienteModificar = "";
+
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
+
+                        Console.WriteLine("Indique el Id del cliente que desa modificar");
+
+                        clienteModificar = Console.ReadLine();                                
+                        
+
+                        Console.WriteLine($"Ingrese un nuevo nombre para la compañia con id:{clienteModificar}");
+                        nuevoCompanyName = Console.ReadLine();
+
+                        Console.WriteLine($"Ingrese un nuevo nombre de contacto para la compañiacon id:{clienteModificar}");
+                        nuevoContactName = Console.ReadLine();
+
+                        Console.WriteLine($"Ingrese una nueva ciudad para la compañia con id:{clienteModificar}");
+                        NuevaCiudad = Console.ReadLine();
+
+                        Console.WriteLine($"Ingrese un nuevo codigo postal para la compañia con id:{clienteModificar}");
+                        nuevoCodigoPostal = Console.ReadLine();
+
+                        Console.WriteLine($"Ingrese un nuevo pais para la compañia con id:{clienteModificar}");
+                        nuevoPaisC = Console.ReadLine();
+
+                        customerLogic.Update(new Customer
+                        {
+                            CustomerID = clienteModificar,
+                            CompanyName = nuevoCompanyName,
+                            ContactName = nuevoContactName,
+                            City = NuevaCiudad,
+                            PostalCode = nuevoCodigoPostal,
+                            Country = nuevoPaisC,
+
+                        }); ;
+
+                        Console.WriteLine($"Genial! El cliente con id:{clienteModificar} se actualizo.");
+
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
                         break;
                     case 4:
+                        string borrarCliente;
+
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
+
+                        Console.WriteLine("Ingrese un Id para eliminarlo.");
+                                                   
+                        borrarCliente = Console.ReadLine();
+                                                                                 
+                        customerLogic.Delete(new Customer { CustomerID = borrarCliente });
+
+                        Console.WriteLine($"El cliente con el id {borrarCliente} a sido eliminado correctamente.");
+
+                        foreach (Customer customer in customerLogic.GetAll())
+                        {
+                            Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} {customer.CompanyName} - {customer.City} - {customer.Country} - {customer.PostalCode}");
+                        }
                         break;
                     case 0:
+                        continuar = false;
                         break;
                 }
-
+                
                 switch (accionDeseadaEmpleado)
                 {
                     case 1:
@@ -176,10 +327,13 @@ namespace Lab.Practica3.EF.UI
                         {
                             Console.WriteLine($"{employee.EmployeeID} - {employee.FirstName} {employee.LastName} - {employee.City} - {employee.Country} - {employee.PostalCode}");
                         }
+
+                        Console.WriteLine("Genial! El empleado se agrego con exito");
+
                         break;
                     case 3:
                         int empleadoModificar = 0, salirModificar = 1;
-                        string nuevoNombre, nuevoApellido, NuevaCity, nuevoPostalCode, nuevoPais;
+                        string nuevoNombre = "", nuevoApellido = "", NuevaCity = "", nuevoPostalCode = "", nuevoPais = "";
 
                         foreach (Employee employee in employeeLogic.GetAll())
                         {
@@ -238,6 +392,12 @@ namespace Lab.Practica3.EF.UI
                         break;
                     case 4:
                         int borrarEmpleado = 0, salirDelete = 1;
+
+                        foreach (Employee employee in employeeLogic.GetAll())
+                        {
+                            Console.WriteLine($"{employee.EmployeeID} - {employee.FirstName} {employee.LastName} - {employee.City} - {employee.Country} - {employee.PostalCode}");
+                        }
+
                         Console.WriteLine("Ingrese un numero de Id para eliminarlo.");
                         while (salirDelete == 1)
                         {

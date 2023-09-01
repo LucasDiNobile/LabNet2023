@@ -16,7 +16,7 @@ namespace Lab.Practica3.EF.Data
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<CustomerDemographic> CustomerDemographics { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Order_Detail> Order_Details { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
