@@ -9,6 +9,7 @@ using System.Security.Policy;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Reflection;
+using System.Net.Http;
 
 namespace Lab.Practica3.EF.UI
 {
@@ -33,27 +34,65 @@ namespace Lab.Practica3.EF.UI
                 {
                     Console.WriteLine(ex.Message);
                 }
+                catch (MaxNumExepcion ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Usted se paso de listo -_-");
+                }
 
                 switch (tablaDeseada)
                 {
                     case 1:
-                        Console.WriteLine("Ustedes elijio la tabla de clientes, desea:\n" +
+                        try
+                        {
+                            Console.WriteLine("Ustedes elijio la tabla de clientes, desea:\n" +
                             "1.Ver tabla de clientes\n" +
                             "2.Insertar un nuevo cliente\n" +
                             "3.Modificar un cliente\n" +
                             "4.Eliminar un cliente\n" +
                             "0.Salir de la aplicacion");
-                        accionDeseadaCliente = int.Parse(Console.ReadLine());
+                            accionDeseadaCliente = int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        catch (MaxNumExepcion ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Usted se paso de listo -_-");
+                        }
 
                         break;
                     case 2:
-                        Console.WriteLine("Ustedes elijio la tabla de empleados, desea:\n" +
+                        try
+                        {
+                            Console.WriteLine("Ustedes elijio la tabla de empleados, desea:\n" +
                             "1.Ver tabla de empleados\n" +
                             "2.Insertar un nuevo empleado\n" +
                             "3.Modificar un empleado\n" +
                             "4.Eliminar un empleado\n" +
                             "0.Salir de la aplicacion");
-                        accionDeseadaEmpleado = int.Parse(Console.ReadLine());
+                            accionDeseadaEmpleado = int.Parse(Console.ReadLine());
+                        }
+                        catch (FormatException ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        catch (MaxNumExepcion ex)
+                        {
+                            Console.WriteLine(ex.Message);
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Usted se paso de listo -_-");
+                        }
 
                         break;
                     case 0:
@@ -78,7 +117,7 @@ namespace Lab.Practica3.EF.UI
                         int agregar = 8, salirInsertC = 1;
                         string nombre = "", nombreContacto = "", ciudad = "", pais = "", codigoPostal = "", id = "";
 
-                        Console.WriteLine("Que campo desea agregarle al cliente?");
+                        Console.WriteLine("Que campo desea agregarle al cliente?\nEste campo solo acepta valores desde -100.000 hasta 100.000.");
 
                         while (salirInsertC == 1)
                         {
@@ -94,10 +133,20 @@ namespace Lab.Practica3.EF.UI
                                     "7.Insertar empleado\n" +
                                     "0.Salir");
                                 agregar = int.Parse(Console.ReadLine());
+
+                                if (agregar < -100000 || agregar > 100000) throw new MaxNumExepcion();
                             }
                             catch (FormatException)
                             {
-                                Console.WriteLine("creo que ingreso una letra, vuelva a intentarlo");
+                                Console.WriteLine("creo que ingreso una letra, vuelva a intentarlo\nEste campo solo acepta valores desde -100.000 hasta 100.000.");
+                            }
+                            catch (MaxNumExepcion ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Usted se paso de listo -_-");
                             }
 
                             switch (agregar)
@@ -105,29 +154,29 @@ namespace Lab.Practica3.EF.UI
                                 case 1:                              
                                     id = Console.ReadLine(); 
                                     
-                                    Console.WriteLine($"Se agregara el id: {id} a la tabla.");
+                                    Console.WriteLine($"Se agregara el id: {id} a la tabla.\nEste campo admite hasta 5 caracteres.");
                                     break;
                                 case 2:
                                     nombre = Console.ReadLine();
-                                    Console.WriteLine($"Se ingresara el nombre: {nombre} a la tabla.");
+                                    Console.WriteLine($"Se ingresara el nombre: {nombre} a la tabla.\nEste campo admite hasta 40 caracteres.");
                                     break;
                                 case 3:
                                     nombreContacto = Console.ReadLine();
-                                    Console.WriteLine($"Se ingresara el apellido: {nombreContacto} a la tabla.");
+                                    Console.WriteLine($"Se ingresara el nombre de contacto: {nombreContacto} a la tabla.\nEste campo admite hasta 30 caracteres.");
                                     break;
                                 case 4:
                                     ciudad = Console.ReadLine();
-                                    Console.WriteLine($"Se ingresara la ciudad: {ciudad} a la tabla.");
+                                    Console.WriteLine($"Se ingresara la ciudad: {ciudad} a la tabla.\nEste campo admite hasta 15 caracteres.");
 
                                     break;
                                 case 5:
                                     codigoPostal = Console.ReadLine();
-                                    Console.WriteLine($"Se ingresara el codigo postal: {codigoPostal} a la tabla.");
+                                    Console.WriteLine($"Se ingresara el codigo postal: {codigoPostal} a la tabla.\nEste campo admite hasta 10 caracteres.");
 
                                     break;
                                 case 6:
                                     pais = Console.ReadLine();
-                                    Console.WriteLine($"Se ingresara el pais: {pais} a la tabla.");
+                                    Console.WriteLine($"Se ingresara el pais: {pais} a la tabla.\nEste campo admite hasta 15 caracteres.");
                                     break;
                                 case 7:
                                     salirInsertC = 0;
@@ -172,19 +221,19 @@ namespace Lab.Practica3.EF.UI
                         clienteModificar = Console.ReadLine();                                
                         
 
-                        Console.WriteLine($"Ingrese un nuevo nombre para la compañia con id:{clienteModificar}");
+                        Console.WriteLine($"Ingrese un nuevo nombre para la compañia con id:{clienteModificar}\nEste campo admite hasta 40 caracteres.");
                         nuevoCompanyName = Console.ReadLine();
 
-                        Console.WriteLine($"Ingrese un nuevo nombre de contacto para la compañiacon id:{clienteModificar}");
+                        Console.WriteLine($"Ingrese un nuevo nombre de contacto para la compañiacon id:{clienteModificar}\nEste campo admite hasta 30 caracteres.");
                         nuevoContactName = Console.ReadLine();
 
-                        Console.WriteLine($"Ingrese una nueva ciudad para la compañia con id:{clienteModificar}");
+                        Console.WriteLine($"Ingrese una nueva ciudad para la compañia con id:{clienteModificar}\nEste campo admite hasta 15 caracteres.");
                         NuevaCiudad = Console.ReadLine();
 
-                        Console.WriteLine($"Ingrese un nuevo codigo postal para la compañia con id:{clienteModificar}");
+                        Console.WriteLine($"Ingrese un nuevo codigo postal para la compañia con id:{clienteModificar}\nEste campo admite hasta 10 caracteres.");
                         nuevoCodigoPostal = Console.ReadLine();
 
-                        Console.WriteLine($"Ingrese un nuevo pais para la compañia con id:{clienteModificar}");
+                        Console.WriteLine($"Ingrese un nuevo pais para la compañia con id:{clienteModificar}\nEste campo admite hasta 15 caracteres.");
                         nuevoPaisC = Console.ReadLine();
 
                         customerLogic.Update(new Customer
@@ -243,28 +292,40 @@ namespace Lab.Practica3.EF.UI
                         int agregar = 0, salirInsert = 1, id = 0;
                         string nombre = "", apellido = "", ciudad = "", pais = "", codigoPostal = "";
                         
-                        Console.WriteLine("Que campo desea agregarle al empleado?");
+                        Console.WriteLine("Que campo desea agregarle al empleado?\nEste campo solo acepta valores desde -100.000 hasta 100.000.");
 
                         while(salirInsert == 1)
                         {
+                                                         
                             try
                             {
                                 Console.WriteLine(
                                     "1.Id\n" +
                                     "2.Nombre\n" +
                                     "3.Apellido\n" +
-                                    "4.Ciudad\n" +                                                                                                 
+                                    "4.Ciudad\n" +
                                     "5.Codigo postal\n" +
                                     "6.Pais\n" +
-                                    "7.Insertar empleado\n" +                                    
+                                    "7.Insertar empleado\n" +
                                     "0.Salir");
                                 agregar = int.Parse(Console.ReadLine());
+
+                                if (agregar < -100000 || agregar > 100000) throw new MaxNumExepcion();
+
                             }
-                            catch(FormatException)
+                            catch (FormatException)
                             {
                                 Console.WriteLine("creo que ingreso una letra, vuelva a intentarlo");
                             }
-                            
+                            catch (MaxNumExepcion ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("Usted se paso de listo -_-");
+                            }
+                                                                                 
                             switch (agregar)
                             {
                                 case 1:
@@ -274,7 +335,7 @@ namespace Lab.Practica3.EF.UI
                                     }
                                     catch (FormatException)
                                     {
-                                        Console.WriteLine("Debe ingresar un numer, intentelo de nuevo.");
+                                        Console.WriteLine("Debe ingresar un numero, intentelo de nuevo.");
                                         break;
                                     }
                                     Console.WriteLine($"Se agregara el id: {id} a la tabla.");
@@ -431,37 +492,3 @@ namespace Lab.Practica3.EF.UI
 }
 
 
-//Muestra tabla de empleados
-//EmployeeLogic employeeLogic = new EmployeeLogic();
-
-//foreach (Employee employee in employeeLogic.GetAll())
-//{
-//  Console.WriteLine($"{employee.FirstName} {employee.LastName} from {employee.Country }, was hired on {employee.HireDate}\n");
-//}
-
-//Prueba Insert
-
-//employeeLogic.Insert(new Employee
-//{
-//  FirstName = "Lucas",
-//  LastName = "Di Nobile"
-//});
-
-//foreach (var item in employeeLogic.GetAll())
-//{
-//  Console.WriteLine($"{item.EmployeeID} {item.FirstName} {item.LastName} {item.HireDate}");
-//}
-
-
-// Prueba Delete
-//employeeLogic.Delete(new Employee { EmployeeID = 9 });
-
-
-// Prueba Update
-
-//employeeLogic.Update(new Employee
-//{
-//   LastName = "Cruz",
-//    FirstName = "Juan",         
-//     EmployeeID = 2,
-//});

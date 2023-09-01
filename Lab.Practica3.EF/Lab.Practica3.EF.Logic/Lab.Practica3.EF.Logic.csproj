@@ -52,6 +52,7 @@
     <Compile Include="CustomerLogic.cs" />
     <Compile Include="EmployeeLogic.cs" />
     <Compile Include="ILogic.cs" />
+    <Compile Include="MaxNumExepcion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
