@@ -43,12 +43,13 @@ namespace Lab.Practica3.EF.Data
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Employees1)
                 .WithOptional(e => e.Employee1)
-                .HasForeignKey(e => e.ReportsTo);
+                .HasForeignKey(e => e.ReportsTo)
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Territories)
                 .WithMany(e => e.Employees)
-                .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));
+                .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"))              
 
             modelBuilder.Entity<Order_Detail>()
                 .Property(e => e.UnitPrice)
@@ -65,7 +66,7 @@ namespace Lab.Practica3.EF.Data
             modelBuilder.Entity<Order>()
                 .HasMany(e => e.Order_Details)
                 .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             modelBuilder.Entity<Product>()
                 .Property(e => e.UnitPrice)

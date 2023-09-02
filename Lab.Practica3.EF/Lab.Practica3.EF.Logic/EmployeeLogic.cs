@@ -2,6 +2,7 @@
 using Lab.Practica3.EF.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,17 @@ namespace Lab.Practica3.EF.Logic
         public void Delete(Employee entity)
         {
             var employeeToDelete = context.Employee.Find(entity.EmployeeID);
-
+            
             context.Employee.Remove(employeeToDelete);
-
+            
             context.SaveChanges();
         }
         public void Insert(Employee entity)
         {
-            context.Employee.Add(entity);
 
+            context.Employee.Add(entity);
+            
+                        
             context.SaveChanges();
         }
         public void Update(Employee entity)
