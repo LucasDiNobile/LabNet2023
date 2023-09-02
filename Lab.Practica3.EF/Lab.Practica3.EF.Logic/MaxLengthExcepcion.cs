@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Lab.Practica3.EF.Logic
 {
-    public class MaxNumExepcion : Exception
+    public class MaxLengthExcepcion : Exception
     {
-        public MaxNumExepcion() : base("El numero que usted ingreso se encuentra fuera de los limites.")
+        public MaxLengthExcepcion() : base("Usted excedio la cantidad maxima de caracteres.")
         {
         }
-
-       
-        
-      
     }
 }
