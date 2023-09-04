@@ -31,7 +31,7 @@ namespace Lab.Practica4.EF.UI
                         "2.Mostrar Products sin stock\n" +
                         "3.Mostrar Products que dispones de stock y cuestan mas de 3\n" +
                         "4.Mostrar Customers de la Region WA\n" +
-                        "5.\n" +
+                        "5.Mostrar Product con ID 789\n" +
                         "6.Mostar Customers en mayusculas y en minusculas\n" +
                         "7.Join entre Customer y Order \n" +
                         "8.Mostrar los tres primeros Customers de la Region WA\n" +
@@ -39,7 +39,7 @@ namespace Lab.Practica4.EF.UI
                         "10.Products ordenados por Units In Stock de manera descendiente\n" +
                         "11.Mostrar las distintas categorías asociadas a los productos\n" +
                         "12.Mostrar primer elemento de lista productos\n" +
-                        "13.Mostrar Customers con cantidad asociadas de Ordenes." +
+                        "13.Mostrar Customers con cantidad asociadas de Ordenes\n" +
                         "0.Salir");
 
                     Console.ForegroundColor = ConsoleColor.White;
@@ -220,7 +220,7 @@ namespace Lab.Practica4.EF.UI
                         break;
                     case 12:
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Estos son los Customer con la cantidad de Orders asociadas:");
+                        Console.WriteLine("Este es el primer elemento de la lista Products:");
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Product productUno = productLogic.FirstProduct();
@@ -229,7 +229,7 @@ namespace Lab.Practica4.EF.UI
                         break;
                     case 13:
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Salio con exito, hasta luego.");
+                        Console.WriteLine("Estos son los Customer con la cantidad de Orders asociadas.");
                         Console.ForegroundColor = ConsoleColor.White;
 
                         foreach (object item in customerLogic.CustomersOrders())

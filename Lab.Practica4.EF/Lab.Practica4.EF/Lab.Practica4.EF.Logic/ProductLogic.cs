@@ -30,10 +30,8 @@ namespace Lab.Practica4.EF.Logic
 
         public Product Id789()
         {
-            
             try
             {
-
                 var list5 = (from Products in context.Products
                         where Products.ProductID == 789
                         select Products).First();
@@ -44,7 +42,6 @@ namespace Lab.Practica4.EF.Logic
 
             }
             return list5;
-            //if (list5 != null) return list5.First();
             
         }
 
