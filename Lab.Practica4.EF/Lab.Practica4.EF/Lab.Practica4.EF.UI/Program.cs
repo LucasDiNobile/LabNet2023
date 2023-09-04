@@ -18,7 +18,7 @@ namespace Lab.Practica4.EF.UI
             CustomerLogic customerLogic = new CustomerLogic();
             ProductLogic productLogic = new ProductLogic();
 
-            int elegirEjercicio = 0;
+            int elegirEjercicio = 14;
             bool boolMain = true;
 
             while (boolMain)
@@ -39,6 +39,7 @@ namespace Lab.Practica4.EF.UI
                         "10.Products ordenados por Units In Stock de manera descendiente\n" +
                         "11.Mostrar las distintas categorías asociadas a los productos\n" +
                         "12.Mostrar primer elemento de lista productos\n" +
+                        "13.Mostrar Customers con cantidad asociadas de Ordenes." +
                         "0.Salir");
 
                     Console.ForegroundColor = ConsoleColor.White;
@@ -126,7 +127,27 @@ namespace Lab.Practica4.EF.UI
                             Console.WriteLine($"{customer.CustomerID} - {customer.ContactName} - {customer.Region}");
                         }
                         break;
-                    case 5://TODO
+                    case 5:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Estos son los clientes de la Region WA");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        Product product5 = new Product();
+                        try
+                        {
+                            product5 = productLogic.Id789();
+
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("Este es el producto con ID 789.");
+                            Console.ForegroundColor = ConsoleColor.White;
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Este Id no pertenece a ningun objeto.");
+                        }
+
+                        
+                        Console.WriteLine($"{product5.ProductName}");
 
                         break;
                     case 6:
@@ -199,22 +220,34 @@ namespace Lab.Practica4.EF.UI
                         break;
                     case 12:
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("Este es el primer objeto de la lista productos:");
+                        Console.WriteLine("Estos son los Customer con la cantidad de Orders asociadas:");
                         Console.ForegroundColor = ConsoleColor.White;
 
                         Product productUno = productLogic.FirstProduct();
 
                         Console.WriteLine($"{productUno.ProductID} - {productUno.ProductName} - {productUno.UnitPrice}");
                         break;
+                    case 13:
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Salio con exito, hasta luego.");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                        foreach (object item in customerLogic.CustomersOrders())
+                        {
+                            Console.WriteLine(item);
+                        }
+                        break;
 
                     case 0:
-                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("Salio con exito, hasta luego.");
                         Console.ForegroundColor = ConsoleColor.White;
                         boolMain = false;
                         break;
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Usted ingreso una letra o un nuemero invalido, vuelva a intentar.");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
             }

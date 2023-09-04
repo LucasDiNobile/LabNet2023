@@ -89,12 +89,13 @@ namespace Lab.Practica4.EF.Logic
             var list13 = (
                         from Customers in context.Customers
                         join Orders in context.Orders on Customers.CustomerID equals Orders.CustomerID into customerOrders
-                        select new
+                        group new
                         {
                             customerID = Customers.CustomerID,
                             customerName = Customers.CompanyName,
-                            orderID = customerOrders.Count()
+                            orderID = customerOrders
                         }
+                        by customerOrders.Count()
                     ).ToList<object>();
 
 

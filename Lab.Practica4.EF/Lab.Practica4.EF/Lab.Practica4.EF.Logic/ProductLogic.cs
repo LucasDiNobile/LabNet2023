@@ -28,6 +28,26 @@ namespace Lab.Practica4.EF.Logic
             return list3;
         }
 
+        public Product Id789()
+        {
+            
+            try
+            {
+
+                var list5 = (from Products in context.Products
+                        where Products.ProductID == 789
+                        select Products).First();
+            }
+            catch (Exception ex)
+            {
+                return null;
+
+            }
+            return list5;
+            //if (list5 != null) return list5.First();
+            
+        }
+
         public List<object> OrderByName()
         {
             var list9 = context.Products
