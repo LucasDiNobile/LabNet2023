@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F0E7C39-6525-4937-8C83-0BB2992C36D8}</ProjectGuid>
+    <ProjectGuid>{321270EC-AD69-4147-AF6A-33AF24CF9056}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Lab.Practica4.EF.UI</RootNamespace>
     <AssemblyName>Lab.Practica4.EF.UI</AssemblyName>
@@ -33,14 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,17 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lab.Practica4.EF.Entities\Lab.Practica4.EF.Entities.csproj">
-      <Project>{73789c76-91cb-4976-9ee0-ef86ca8024ff}</Project>
-      <Name>Lab.Practica4.EF.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lab.Practica4.EF.Logic\Lab.Practica4.EF.Logic.csproj">
-      <Project>{c98b213c-bf93-4506-9a5c-6dfa981bea30}</Project>
-      <Name>Lab.Practica4.EF.Logic</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
