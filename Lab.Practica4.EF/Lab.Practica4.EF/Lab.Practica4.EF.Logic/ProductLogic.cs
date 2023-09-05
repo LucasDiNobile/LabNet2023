@@ -30,19 +30,12 @@ namespace Lab.Practica4.EF.Logic
 
         public Product Id789()
         {
-            try
-            {
-                var list5 = (from Products in context.Products
-                        where Products.ProductID == 789
-                        select Products).First();
-            }
-            catch (Exception ex)
-            {
-                return null;
-
-            }
-            return list5;
-            
+                        
+            var list5 = (from Products in context.Products
+                    where Products.ProductID == 789
+                    select Products).FirstOrDefault();
+                       
+            return list5;            
         }
 
         public List<object> OrderByName()
