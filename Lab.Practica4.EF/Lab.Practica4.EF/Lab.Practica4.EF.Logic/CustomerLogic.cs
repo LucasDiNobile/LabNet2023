@@ -77,7 +77,7 @@ namespace Lab.Practica4.EF.Logic
         public List<object> FirstThree()
         {
             var query8 = context.Customers
-                    .Where(c => c.Region == "WA")
+                    .Where(c => c.Region == "WA ")
                     .Take(3)
                     .ToList<object>();
 
@@ -86,23 +86,15 @@ namespace Lab.Practica4.EF.Logic
 
         public List<object> CustomersOrders()
         {
-            var list13 = (
-                        from Customers in context.Customers
-                        join Orders in context.Orders on Customers.CustomerID equals Orders.CustomerID into customerOrders
-                        group new
-                        {
-                            customerID = Customers.CustomerID,
-                            customerName = Customers.CompanyName,
-                            orderID = customerOrders
-                        }
-                        by customerOrders.Count()
-                    ).ToList<object>();
-
-
-            return list13;
+            var list13 = from Customers in context.Customers
+                         join Orders in context.Orders on Customers.CustomerID equals Orders.CustomerID into customerOrders
+                         select new
+                         {
+                             customerID = Customers.CustomerID,
+                             orderID = customerOrders.Count()
+                         };
+                                                             
+            return list13.ToList<object>();
         }
-
-
-
     }
 }
