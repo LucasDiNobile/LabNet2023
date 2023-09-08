@@ -1,0 +1,18 @@
+﻿@model Lab.Practica6.MVC.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Empployee Page";
+}
+
+<h1>Insertar Employee</h1>
+
+@using (Html.BeginForm("Insert", "Employee", FormMethod.Post))
+{
+    <label>Id: </label> @Html.TextBoxFor(e => e.Id)
+    <br />
+    <label>Nombre: </label> @Html.TextBoxFor(e => e.Nombre)
+    <br />
+    <label>Apellido: </label> @Html.TextBoxFor(e => e.Apellido)
+    <br />
+    <input type="submit" class="btn btn-success" value="Guardar" />
+}

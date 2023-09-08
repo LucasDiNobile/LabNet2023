@@ -2,9 +2,9 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using Lab.Practica3.EF.Entities;
+using Lab.Practica6.Entities;
 
-namespace Lab.Practica3.EF.Data 
+namespace Lab.Practica6.Data 
 {
     public partial class NorthwindContext : DbContext
     {
@@ -49,7 +49,7 @@ namespace Lab.Practica3.EF.Data
             modelBuilder.Entity<Employee>()
                 .HasMany(e => e.Territories)
                 .WithMany(e => e.Employees)
-                .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"))              
+                .Map(m => m.ToTable("EmployeeTerritories").MapLeftKey("EmployeeID").MapRightKey("TerritoryID"));              
 
             modelBuilder.Entity<Order_Detail>()
                 .Property(e => e.UnitPrice)

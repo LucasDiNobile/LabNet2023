@@ -1,5 +1,5 @@
-﻿using Lab.Practica3.EF.Logic;
-using Lab.Practica3.EF.Entities;
+﻿using Lab.Practica6.Logic;
+using Lab.Practica6.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Security.Cryptography;
 using System.Reflection;
 using System.Net.Http;
 
-namespace Lab.Practica3.EF.UI
+namespace Lab.Practica6.EF.UI
 {
     internal class Program
     {
@@ -502,7 +502,7 @@ namespace Lab.Practica3.EF.UI
                             }
                            
                         }
-                        employeeLogic.Delete(new Employee { EmployeeID = borrarEmpleado });
+                        employeeLogic.Delete(borrarEmpleado);
 
                         foreach (Employee employee in employeeLogic.GetAll())
                         {

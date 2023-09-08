@@ -1,13 +1,8 @@
-﻿using Lab.Practica3.EF.Data;
-using Lab.Practica3.EF.Entities;
-using System;
+﻿using Lab.Practica6.Entities;
 using System.Collections.Generic;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Lab.Practica3.EF.Logic
+namespace Lab.Practica6.Logic
 {
     public class EmployeeLogic : BaseLogic, ILogic<Employee>
     {
@@ -20,7 +15,7 @@ namespace Lab.Practica3.EF.Logic
         }
 
         public void Delete(Employee entity)
-        {
+        { 
             var employeeToDelete = context.Employee.Find(entity.EmployeeID);
             
             context.Employee.Remove(employeeToDelete);
@@ -36,14 +31,12 @@ namespace Lab.Practica3.EF.Logic
             context.SaveChanges();
         }
         public void Update(Employee entity)
-        {
+        {              
             var employeeUpdate = context.Employee.Find(entity.EmployeeID);
 
             employeeUpdate.LastName = entity.LastName;
             employeeUpdate.FirstName = entity.FirstName;
-            employeeUpdate.City = entity.City;
-            employeeUpdate.PostalCode = entity.PostalCode;
-            employeeUpdate.Country = entity.Country;    
+   
 
             context.SaveChanges();
         }

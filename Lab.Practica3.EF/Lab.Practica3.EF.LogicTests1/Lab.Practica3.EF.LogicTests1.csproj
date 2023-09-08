@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab.Practica3.EF.Logic\Lab.Practica3.EF.Logic.csproj">
+    <ProjectReference Include="..\Lab.Practica3.EF.Logic\Lab.Practica6.Logic.csproj">
       <Project>{D62B2E4A-25C8-44DE-9D58-62358BB83564}</Project>
-      <Name>Lab.Practica3.EF.Logic</Name>
+      <Name>Lab.Practica6.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
