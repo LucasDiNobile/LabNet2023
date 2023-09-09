@@ -8,11 +8,18 @@
 
 @using (Html.BeginForm("Insert", "Employee", FormMethod.Post))
 {
-    <label>Id: </label> @Html.TextBoxFor(e => e.Id)
-    <br />
     <label>Nombre: </label> @Html.TextBoxFor(e => e.Nombre)
+    <p>Maximo 10 caracteres</p>
     <br />
     <label>Apellido: </label> @Html.TextBoxFor(e => e.Apellido)
+    <p>Maximo 20 caracteres</p>
     <br />
     <input type="submit" class="btn btn-success" value="Guardar" />
+}
+
+<br />
+
+@using (Html.BeginForm("Volver", "Employee", FormMethod.Post))
+{
+    <input type="submit" class="btn btn-success" value="Volver a Index Employee" />
 }

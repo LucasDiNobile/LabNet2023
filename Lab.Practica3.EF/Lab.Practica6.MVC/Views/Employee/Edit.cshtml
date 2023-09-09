@@ -3,16 +3,32 @@
 @{
     ViewBag.Title = "Empployee Page";
 }
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
 <h1>Editar Employee</h1>
 
 @using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
 {
-    <label>Id: </label> @Html.TextBoxFor(e => e.Id)
-    <br />
     <label>Nombre: </label> @Html.TextBoxFor(e => e.Nombre)
+    <p>Maximo 10 caracteres</p>
     <br />
     <label>Apellido: </label> @Html.TextBoxFor(e => e.Apellido)
+    <p>Maximo 20 caracteres</p>
     <br />
-    <input type="submit" class="btn btn-success" value="Guardar" />
+    <input type="submit" class="btn btn-success" value="Guardar" onclick="sure()" />
 }
+
+<br />
+
+@using (Html.BeginForm("Volver", "Employee", FormMethod.Post))
+{
+    <input type="submit" class="btn btn-success" value="Volver a Index Employee" />
+}
+
+<script>
+    function sure() {
+        alert("Se modificara el Employee");
+    }
+</script>

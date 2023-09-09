@@ -1,1 +1,8 @@
-﻿<p>Hubo un error</p>
+﻿<h3>Hubo un error</h3>
+<br />
+<p>Recuerde que debe completar todos los campos y respetar la cantidad de caracteres.</p>
+<br />
+@using (Html.BeginForm("Volver", "Error", FormMethod.Post))
+{
+    <input type="submit" class="btn btn-success" value="Volver a Index Employee" />
+}

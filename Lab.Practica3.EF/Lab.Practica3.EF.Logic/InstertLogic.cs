@@ -8,17 +8,14 @@ namespace Lab.Practica6.Logic
 {
     public class InstertLogic
     {
-        public static string InsterCheck(string varLength,string campo, int cant)
+        public static string InsterCheck(string varLength, int cant)
         {
-            bool sale = true;
-            while (sale) 
+            if (varLength.Length <= cant && varLength != "")
             {
-                if (varLength.Length <= cant && varLength != "")
-                {
-                    return varLength;
-                }
-            }           
-            return "";
+                return varLength;
+            }
+                     
+            return null;
         }       
     }
 }

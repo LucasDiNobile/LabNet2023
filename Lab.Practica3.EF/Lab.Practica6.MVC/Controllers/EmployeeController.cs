@@ -59,13 +59,11 @@ namespace Lab.Practica6.MVC.Controllers
         {
             try
             {
-                
-
                 Employee employeDelete = new Employee
                 {
                     EmployeeID = id
                 };
- 
+
                 employeeLogic.Delete(employeDelete);
                 return RedirectToAction("Index");
             }
@@ -76,6 +74,13 @@ namespace Lab.Practica6.MVC.Controllers
             }
         }
 
+
+        public ActionResult Volver()
+        {
+            return RedirectToAction("Index", "Employee");
+        }
+
+
         public ActionResult Edit()
         {
             return View();
@@ -83,15 +88,13 @@ namespace Lab.Practica6.MVC.Controllers
 
 
         [HttpPost]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(EmployeeModel employeeModel)
         {
-            EmployeeModel employeeModel = new EmployeeModel();
-
             try
             {               
                 Employee employeUpdate = new Employee
                 {
-                    EmployeeID = id,
+                    EmployeeID = employeeModel.Id,
                     FirstName = employeeModel.Nombre,
                     LastName = employeeModel.Apellido
                 };
@@ -103,7 +106,6 @@ namespace Lab.Practica6.MVC.Controllers
             {             
                 return RedirectToAction("Index", "Error");
             }
-
         }
     }
 }

@@ -13,5 +13,10 @@ namespace Lab.Practica6.MVC.Controllers
         {
             return View();
         }
+
+        public ActionResult Volver() 
+        { 
+            return RedirectToAction("Index", "Employee");
+        }
     }
 }
