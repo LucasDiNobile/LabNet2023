@@ -14,7 +14,7 @@
     <label>Apellido: </label> @Html.TextBoxFor(e => e.Apellido)
     <p>Maximo 20 caracteres</p>
     <br />
-    <input type="submit" class="btn btn-success" value="Guardar" />
+    <input type="submit" class="btn btn-success" value="Guardar" onclick="agregar()" />
 }
 
 <br />
@@ -23,3 +23,8 @@
 {
     <input type="submit" class="btn btn-success" value="Volver a Index Employee" />
 }
+<script>
+    function agregar() {
+        alert("Se realizara el insert del Employee.");
+    }
+</script>
