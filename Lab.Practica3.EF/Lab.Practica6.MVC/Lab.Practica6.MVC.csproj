@@ -190,6 +190,7 @@
     <Content Include="Views\Employee\Insert.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Error\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

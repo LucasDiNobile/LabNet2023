@@ -10,36 +10,21 @@ namespace Lab.Practica6.Logic
     {
         public EmployeeLogic() : base() { }
 
+        Order order = new Order();  
+
         public List<Employee> GetAll()
         {
             return context.Employee.ToList();
         }
 
         public void Delete(Employee entity)
-        { 
-            var employeeToDelete = context.Employee.Find(entity.EmployeeID);
+        {
+            Employee employeeToDelete = context.Employee.Find(entity.EmployeeID);
+           
+            context.Employee.Remove(employeeToDelete);
 
-            List<Territory> territoryList = new List<Territory>(entity.Territories);
-
-            foreach (var item in territoryList)
-            {
-                context.Territories.Remove(item);
-            }
-
-            List<Order> orderList = new List<Order>(entity.Orders);
-
-            foreach (var ord in orderList)
-            {
-                List<Order_Detail> ordersDetail = new List<Order_Detail>(ord.Order_Details);
-                foreach (var orderD in ordersDetail)
-                {
-                    context.Order_Details.Remove(orderD);
-                }
-                context.Orders.Remove(ord);
-            }
-            context.Employee.Remove(employeeToDelete);  
-            
             context.SaveChanges();
+                          
         }
         public void Insert(Employee entity)
         {

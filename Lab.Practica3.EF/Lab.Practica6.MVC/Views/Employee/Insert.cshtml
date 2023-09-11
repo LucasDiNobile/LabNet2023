@@ -8,10 +8,14 @@
 
 @using (Html.BeginForm("Insert", "Employee", FormMethod.Post))
 {
-    <label>Nombre: </label> @Html.TextBoxFor(e => e.Nombre)
+    <label>Nombre: </label>
+    @Html.TextBoxFor(e => e.Nombre)
+    @Html.ValidationMessageFor(e => e.Nombre)
     <p>Maximo 10 caracteres</p>
     <br />
-    <label>Apellido: </label> @Html.TextBoxFor(e => e.Apellido)
+    <label>Apellido: </label>
+    @Html.TextBoxFor(e => e.Apellido)
+    @Html.ValidationMessageFor(e => e.Apellido)
     <p>Maximo 20 caracteres</p>
     <br />
     <input type="submit" class="btn btn-success" value="Guardar" onclick="agregar()" />

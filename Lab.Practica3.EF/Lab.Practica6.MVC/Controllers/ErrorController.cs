@@ -13,6 +13,10 @@ namespace Lab.Practica6.MVC.Controllers
         {
             return View();
         }
+        public ActionResult Delete()
+        {
+            return View();
+        }
 
         public ActionResult Volver() 
         { 

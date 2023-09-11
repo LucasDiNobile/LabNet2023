@@ -38,11 +38,11 @@ namespace Lab.Practica6.MVC.Controllers
         {
             try
             {
-                Employee employeeEntity = new Employee 
-                { 
+                Employee employeeEntity = new Employee
+                {
                     EmployeeID = employeeModel.Id,
                     FirstName = employeeModel.Nombre,
-                    LastName= employeeModel.Apellido
+                    LastName = employeeModel.Apellido
                 };
 
                 employeeLogic.Insert(employeeEntity);
@@ -54,7 +54,7 @@ namespace Lab.Practica6.MVC.Controllers
                 return RedirectToAction("Index", "Error");
             }
         }
-
+         
         public ActionResult Delete(int id)
         {
             try
@@ -62,18 +62,19 @@ namespace Lab.Practica6.MVC.Controllers
                 Employee employeDelete = new Employee
                 {
                     EmployeeID = id
-                };
+                }
 
                 employeeLogic.Delete(employeDelete);
-                return RedirectToAction("Index");
+
+                return RedirectToAction("index");
+
             }
             catch (Exception)
             {
-                return RedirectToAction("Index", "Error");
+                return RedirectToAction("Delete", "Error");
 
             }
         }
-
 
         public ActionResult Volver()
         {
@@ -97,7 +98,8 @@ namespace Lab.Practica6.MVC.Controllers
                     EmployeeID = employeeModel.Id,
                     FirstName = employeeModel.Nombre,
                     LastName = employeeModel.Apellido
-                };
+                } 
+
                 employeeLogic.Update(employeUpdate);
 
                 return RedirectToAction("Index");
