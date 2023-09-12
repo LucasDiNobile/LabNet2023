@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Api Publica Page";
+}
+
+<head>
+
+</head>
+<body>
+    <h1>Gatitos Aleatorios</h1>
+    <p>Esta api genera una imagen de gatitos aleatorios cada vez que recarga la pagina.</p>
+    <div id="imagen">
+        <img alt="" />
+    </div>
+    <div id="botones">
+        @using (Html.BeginForm("Recargar", "ApiPublica", FormMethod.Post))
+        {
+            <input type="submit" class="btn btn-success" value="Recargar pagina" />
+        }
+
+        @using (Html.BeginForm("VolverInicio", "ApiPublica", FormMethod.Post))
+        {
+            <input type="submit" class="btn btn-success" value="Volver al inicio" />
+        }
+    </div>
+
+</body>
+
+<script>
+    const URL = 'https://api.thecatapi.com/v1/images/search';
+
+    fetch(URL)
+        .then(res => res.json())
+        .then(data => {
+            const img = document.querySelector('img');
+            img.src = data[0].url;
+        })
+
+</script>
+
+<style>
+    #imagen {
+        text-align: center;
+    }
+    img{
+        max-block-size: 1500px;
+    }
+    #botones {
+        display: flex;
+    }
+    .btn-success {
+        margin-right: 15px;
+    }
+</style>
