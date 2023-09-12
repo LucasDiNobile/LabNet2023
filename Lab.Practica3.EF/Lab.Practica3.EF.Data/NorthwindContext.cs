@@ -1,10 +1,7 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
 using Lab.Practica6.Entities;
+using System.Data.Entity;
 
-namespace Lab.Practica6.Data 
+namespace Lab.Practica6.Data
 {
     public partial class NorthwindContext : DbContext
     {

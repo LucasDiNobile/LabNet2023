@@ -4,7 +4,6 @@ using Lab.Practica6.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Lab.Practica6.MVC.Controllers
@@ -46,7 +45,7 @@ namespace Lab.Practica6.MVC.Controllers
                 };
 
                 employeeLogic.Insert(employeeEntity);
-
+               
                 return RedirectToAction("Index");
             }
             catch (Exception)
@@ -62,11 +61,11 @@ namespace Lab.Practica6.MVC.Controllers
                 Employee employeDelete = new Employee
                 {
                     EmployeeID = id
-                }
+                };                
 
                 employeeLogic.Delete(employeDelete);
 
-                return RedirectToAction("index");
+                return RedirectToAction("Index");
 
             }
             catch (Exception)
@@ -92,13 +91,13 @@ namespace Lab.Practica6.MVC.Controllers
         public ActionResult Edit(EmployeeModel employeeModel)
         {
             try
-            {               
+            {
                 Employee employeUpdate = new Employee
                 {
                     EmployeeID = employeeModel.Id,
                     FirstName = employeeModel.Nombre,
                     LastName = employeeModel.Apellido
-                } 
+                }; 
 
                 employeeLogic.Update(employeUpdate);
 

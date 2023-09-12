@@ -1,7 +1,5 @@
 ﻿using Lab.Practica6.Entities;
-using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 
 namespace Lab.Practica6.Logic
@@ -23,8 +21,7 @@ namespace Lab.Practica6.Logic
            
             context.Employee.Remove(employeeToDelete);
 
-            context.SaveChanges();
-                          
+            context.SaveChanges();                                     
         }
         public void Insert(Employee entity)
         {

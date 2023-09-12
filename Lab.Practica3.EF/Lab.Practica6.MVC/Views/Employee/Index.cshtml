@@ -4,8 +4,11 @@
     ViewBag.Title = "Empployee Page";
 }
 
-<body>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
 
+<body>
     <h1>Index Employee</h1>
 
     <div>
@@ -28,9 +31,28 @@
                     <td>@employee.Nombre</td>
                     <td>@employee.Apellido</td>
                     <td>@Html.ActionLink("Modificar", "Edit", new { id = employee.Id })</td>                
-                    <td>@Html.ActionLink("Borrar", "Delete", new { id = employee.Id }, new { onclick = "return confirm('Seguro desea borrar este empleado?')"})</td>
+                    <td>@Html.ActionLink("Borrar", "Delete", new { id = employee.Id }, new { onclick = "return confirm('Seguro desea borrar este empleado?')" })</td>
                 </tr>
             }
         </tbody>
     </table>
 </body>
+
+<script>    
+    function ajaxDelete(idEmployee) {
+        $.ajax({
+            url: @Url.Action("Delete", "Employee"),
+            method: 'POST',
+            data: {
+                idEmployee: idEmployee,
+            },
+            dataType: "json",
+            success: function (data) {
+                consol.log(data);
+            },
+            error: function (xhr) {
+                consol.log(xhr);
+            }
+        });
+    }
+</script>
