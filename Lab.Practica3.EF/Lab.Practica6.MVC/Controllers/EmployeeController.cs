@@ -42,7 +42,8 @@ namespace Lab.Practica6.MVC.Controllers
                     EmployeeID = employeeModel.Id,
                     FirstName = employeeModel.Nombre,
                     LastName = employeeModel.Apellido
-                };
+
+                } ?? throw new Exception();
 
                 employeeLogic.Insert(employeeEntity);
                
@@ -61,7 +62,7 @@ namespace Lab.Practica6.MVC.Controllers
                 Employee employeDelete = new Employee
                 {
                     EmployeeID = id
-                };                
+                } ?? throw new Exception();
 
                 employeeLogic.Delete(employeDelete);
 
