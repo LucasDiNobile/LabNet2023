@@ -44,9 +44,10 @@ namespace Lab.net.Practica7.WebApi.Controllers
             {
                 Employee employee = new Employee()
                 {
-                    FirstName = request.Nombre, 
+                    FirstName = request.Nombre,
                     LastName = request.Apellido
                 };
+
                 this.empLogic.Insert(employee);
                 return Content(HttpStatusCode.Created, employee);
 
@@ -65,6 +66,7 @@ namespace Lab.net.Practica7.WebApi.Controllers
                 {
                     EmployeeID = request.Id
                 };
+
                 this.empLogic.Delete(employeeDelete);
                 return Ok(employeeDelete);
 
