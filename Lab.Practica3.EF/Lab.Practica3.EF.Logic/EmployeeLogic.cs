@@ -1,4 +1,5 @@
 ﻿using Lab.Practica6.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,8 +26,12 @@ namespace Lab.Practica6.Logic
         }
         public void Insert(Employee entity)
         {
+            if (entity.FirstName == null || entity.LastName == null)
+            {
+                throw new Exception("Los campos no pueden ser nulos");
+            }
             context.Employee.Add(entity);
-                                   
+   
             context.SaveChanges();
         }
         public void Update(Employee entity)

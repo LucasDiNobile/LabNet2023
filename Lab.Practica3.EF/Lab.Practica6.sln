@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.Practica6.Entities", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.Practica6.MVC", "Lab.Practica6.MVC\Lab.Practica6.MVC.csproj", "{D89A7652-665C-4ED2-806E-0667879B2417}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab.net.Practica7.WebApi", "Lab.net.Practica7.WebApi\Lab.net.Practica7.WebApi.csproj", "{1A8FB0C2-684C-4B9D-9676-1204AEDA5DD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D89A7652-665C-4ED2-806E-0667879B2417}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D89A7652-665C-4ED2-806E-0667879B2417}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D89A7652-665C-4ED2-806E-0667879B2417}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A8FB0C2-684C-4B9D-9676-1204AEDA5DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A8FB0C2-684C-4B9D-9676-1204AEDA5DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A8FB0C2-684C-4B9D-9676-1204AEDA5DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A8FB0C2-684C-4B9D-9676-1204AEDA5DD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
