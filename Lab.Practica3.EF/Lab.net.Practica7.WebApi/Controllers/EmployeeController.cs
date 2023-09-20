@@ -37,7 +37,6 @@ namespace Lab.net.Practica7.WebApi.Controllers
             }
         }
 
-        
         public IHttpActionResult AddEmployee([FromBody] EmployeeModel request) 
         {
             try
@@ -60,13 +59,14 @@ namespace Lab.net.Practica7.WebApi.Controllers
 
         public IHttpActionResult DeleteEmployee([FromBody] EmployeeModel request)
         {
+
             try
             {
                 Employee employeeDelete = new Employee()
                 {
                     EmployeeID = request.Id
                 };
-
+                
                 this.empLogic.Delete(employeeDelete);
                 return Ok(employeeDelete);
 

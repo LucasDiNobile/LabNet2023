@@ -7,9 +7,7 @@ namespace Lab.Practica6.Logic
 {
     public class EmployeeLogic : BaseLogic, ILogic<Employee>
     {
-        public EmployeeLogic() : base() { }
-
-        Order order = new Order();  
+        public EmployeeLogic() : base() { } 
 
         public List<Employee> GetAll()
         {
@@ -24,11 +22,12 @@ namespace Lab.Practica6.Logic
             }
 
             Employee employeeToDelete = context.Employee.Find(entity.EmployeeID);
-           
+
             context.Employee.Remove(employeeToDelete);
 
             context.SaveChanges();                                     
         }
+
 
         public void Insert(Employee entity)
         {
