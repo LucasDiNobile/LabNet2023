@@ -11,8 +11,19 @@
     font-size: 15px;
     background-color: rgba(39, 42, 230, 0.883);
 }
+.editar{
+    width: 330px;
+    height: 45px;
+    text-align: center;
+    font-size: 15px;
+    background-color: rgba(39, 42, 230, 0.883);
+    top: 770px;
+    left: 285px;
+    position: fixed;
+    border: 1px solid rgba(4, 4, 117, 0.883);
+}
 .formAndButtons{
-    position: absolute;
+    position: fixed;
     top: 200px;
     left: 250px;
     border-collapse: collapse;
@@ -40,5 +51,8 @@ table {
 .spinner{
     margin: 0 auto;
     top: 400px;
+}
+.img{
+    width: 120px; 
 }
 

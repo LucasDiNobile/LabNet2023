@@ -5,6 +5,7 @@
 
 <div *ngIf="!loading"> 
     <div class="formAndButtons" *ngIf="verTabla">
+        <img class="img" src="../../../assets/img/pencil.png" >
         <form [formGroup]="formUpdate">
             <mat-form-field class="input" *ngIf="ocultarId">
                 <mat-label>ID</mat-label>
@@ -14,29 +15,28 @@
             <mat-form-field class="input">
             <mat-label>Nombre</mat-label>
             <input id="nombre" matInput placeholder="Ej. Lucas" formControlName="nombre"/>
-        </mat-form-field>
-        <br />
-        <mat-form-field class="input">
+            </mat-form-field>
+            <br />
+            <mat-form-field class="input">
             <mat-label>Apellido</mat-label>
             <input id="apellido" matInput placeholder="Ej. Di Nobile" formControlName="apellido"/>
-        </mat-form-field>
-    </form>
+            </mat-form-field>
+        </form>
     
-    <button class="boton" mat-raised-button color="primary" [disabled]="this.formUpdate.invalid" (click)="editarEmployee()">Guardar cambios</button>
-    <br />
-    <br />
-    <button class="boton" mat-raised-button color="primary" (click)="cancelarForm()">Limpiar</button>
-    <br />
-    <br />
-    <button class="boton" mat-raised-button color="primary" (click)="goToEmployee()">Volver a Employees</button>
-</div>
+        <button class="boton" mat-raised-button color="primary" [disabled]="this.formUpdate.invalid" (click)="editarEmployee()">Guardar cambios</button>
+        <br />
+        <br />
+        <button class="boton" mat-raised-button color="primary" (click)="cancelarForm()">Limpiar</button>
+    </div>
 
-<span class="row">
-    <table class="table table-striped table-hover">
-        <thead>
-            <th class="th" scope="col">Employees disponibles</th>
-            <th class="th" scope="col">Modificar</th>
-        </thead>
+    <button class="editar" mat-raised-button color="primary" (click)="goToEmployee()">Volver a empleados</button>
+
+    <span class="row">
+        <table class="table table-striped table-hover">
+            <thead>
+                <th class="th" scope="col">Empleados disponibles</th>
+                <th class="th" scope="col">Modificar</th>
+            </thead>
             <tbody>
                 <tr *ngFor="let item of listEmployee">
                     <td class="td">{{item.Nombre}} {{item.Apellido}}</td>

@@ -4,29 +4,29 @@
 <mat-spinner *ngIf="loading" class="spinner" diameter="50"></mat-spinner>
 
 <div *ngIf="!loading">
-    <div class="formAndButtons">
-        <form class="formulario" [formGroup]="formEmployees">
-            <mat-form-field class="input">
-                <mat-label for="Nombre" >Nombre</mat-label>
-                <input id="Nombre" matInput placeholder="Ej. Lucas" formControlName="nombre"/>
-            </mat-form-field>
-
+        <div class="formAndButtons">
+            <form class="formulario" [formGroup]="formEmployees">
+                <img class="img" src="../../../assets/img/working.png" >
+                <br />
+                <mat-form-field class="input">
+                    <mat-label for="Nombre" >Nombre</mat-label>
+                    <input id="Nombre" matInput placeholder="Ej. Lucas" formControlName="nombre"/>
+                </mat-form-field>
+                <br />
+                <mat-form-field class="input">
+                    <mat-label for="Apellido" >Apellido</mat-label>
+                    <input id="Apellido" matInput placeholder="Ej. Di Nobile" formControlName="apellido"/>
+                </mat-form-field>
+            </form>
+            
+            <button class="boton" mat-raised-button color="primary" [disabled]="this.formEmployees.invalid" (click)="guardarEmployee()">Agregar Employee</button>
             <br />
-            <mat-form-field class="input">
-                <mat-label for="Apellido" >Apellido</mat-label>
-                <input id="Apellido" matInput placeholder="Ej. Di Nobile" formControlName="apellido"/>
-            </mat-form-field>
-
-        </form>
+            <br />
+            <button class="boton" mat-raised-button color="primary" (click)="cancelarForm()">Limpiar</button>
+        </div>
         
-        <button class="boton" mat-raised-button color="primary" [disabled]="this.formEmployees.invalid" (click)="guardarEmployee()">Agregar Employee</button>
-        <br />
-        <br />
-        <button class="boton" mat-raised-button color="primary" (click)="cancelarForm()">Limpiar</button>
-        <br />
-        <br />
-        <button class="boton" mat-raised-button color="primary" (click)="goToUpdate()">Editar Employee</button>
-    </div>
+        <button class="editar" mat-raised-button color="primary" (click)="goToUpdate()">Editar Employee</button>
+ 
     
     <span class="row">
         <table class="table table-striped table-hover">
