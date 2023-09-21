@@ -14,6 +14,7 @@ export class EmployeeComponent{
   formEmployees!: FormGroup
   employee!: EmployeeModel;
   loading: boolean = false;
+  
   public listEmployee: Array<EmployeeModel> = [];
 
   constructor(private formBuild: FormBuilder, private employeeService: ServicesService, private router: Router) { }
@@ -106,6 +107,8 @@ export class EmployeeComponent{
       }
     })
   }
+
+  
 
   refresh(){
     this.loading = true;

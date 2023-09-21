@@ -11,7 +11,7 @@
     font-size: 15px;
     background-color: rgba(39, 42, 230, 0.883);
 }
-.editar{
+.volver{
     width: 330px;
     height: 45px;
     text-align: center;
@@ -22,6 +22,10 @@
     position: fixed;
     border: 1px solid rgba(4, 4, 117, 0.883);
 }
+.volver:hover{
+    background-color: rgba(22, 24, 130, 0.883);
+}
+
 .formAndButtons{
     position: fixed;
     top: 200px;
@@ -54,5 +58,14 @@ table {
 }
 .img{
     width: 120px; 
+}
+
+.edit{
+    background-color: rgb(119, 56, 214);
+    border: 1px solid rgba(0, 0, 0);
+}
+.edit:hover{
+    background-color: rgb(66, 30, 120);
+    border: 1px solid rgba(0, 0, 0)
 }
 

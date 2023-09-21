@@ -27,6 +27,10 @@ table {
     background-color: rgb(205, 16, 16);
     border: 1px solid rgba(0, 0, 0, 0.883);
 }
+.delete:hover{
+    background-color: rgb(138, 17, 17);
+    border: 1px solid rgba(0, 0, 0, 0.883);
+}
 
 .formAndButtons{
     position: fixed;
@@ -51,6 +55,10 @@ table {
     position: fixed;
     border: 1px solid rgba(4, 4, 117, 0.883);
 }
+.editar:hover{
+    background-color: rgba(22, 24, 130, 0.883)
+}
+
 .boton{
     width: 330px;
     height: 45px;
@@ -58,6 +66,9 @@ table {
     font-size: 15px;
     background-color: rgba(39, 42, 230, 0.883);
     border: 1px solid rgba(4, 4, 117, 0.883);
+}
+.boton:hover{
+    background-color: rgba(22, 24, 130, 0.883)
 }
 
 .img{
