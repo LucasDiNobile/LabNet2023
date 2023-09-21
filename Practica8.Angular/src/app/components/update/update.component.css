@@ -11,6 +11,9 @@
     font-size: 15px;
     background-color: rgba(39, 42, 230, 0.883);
 }
+.boton:hover{
+    background-color: rgba(22, 24, 130, 0.883);
+}
 .volver{
     width: 330px;
     height: 45px;
